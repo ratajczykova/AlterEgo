@@ -32,7 +32,7 @@ export default function ProfileScreen() {
                         <p className="font-share text-muted tracking-widest uppercase">No records found. Complete a mission to earn your first Soul Stamp.</p>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-20">
                         {collection.map((item, i) => {
                             const isTapped = tappedIndex === i;
                             return (
@@ -54,12 +54,12 @@ export default function ProfileScreen() {
                                         <div className="text-5xl mb-6 filter drop-shadow-[0_0_8px_rgba(212,160,23,0.4)]">{item.stampData.seal_emoji}</div>
 
                                         {/* The moment text appears on hover or tap */}
-                                        <div className="h-[70px] overflow-hidden relative">
-                                            <div className={`absolute inset-0 flex items-center justify-center transition-transform duration-300 ${isTapped ? '-translate-y-full' : 'translate-y-0 md:group-hover:-translate-y-full'}`}>
-                                                <div className="font-bebas text-2xl text-sand2 tracking-widest">SOUL STAMP</div>
+                                        <div className="h-[70px] relative overflow-hidden">
+                                            <div className={`absolute w-full inset-0 flex items-center justify-center transition-transform duration-300 ${isTapped ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100 md:group-hover:-translate-y-full md:group-hover:opacity-0'}`}>
+                                                <div className="font-bebas text-2xl text-sand2 tracking-widest whitespace-nowrap">SOUL STAMP</div>
                                             </div>
-                                            <div className={`absolute inset-0 flex items-center justify-center text-center transition-transform duration-300 ${isTapped ? 'translate-y-0' : 'translate-y-full md:group-hover:translate-y-0'}`}>
-                                                <p className="font-share text-sm text-sand italic leading-tight">{item.stampData.moment}</p>
+                                            <div className={`absolute w-full inset-0 flex items-center justify-center text-center transition-transform duration-300 ${isTapped ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100'}`}>
+                                                <p className="font-share text-sm text-sand italic leading-tight line-clamp-4 px-2 w-full">{item.stampData.moment}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -72,7 +72,7 @@ export default function ProfileScreen() {
                     </div>
                 )}
 
-                <div className="mt-24 w-full flex justify-center pb-12">
+                <div className="mt-36 w-full flex justify-center pb-16">
                     <button
                         className="btn-again max-w-[400px] w-full mx-auto"
                         onClick={() => setCurrentScreen('intro')}

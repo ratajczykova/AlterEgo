@@ -79,22 +79,51 @@ export async function POST(req: Request) {
         }
 
         const prompt = `You are the engine of a tourism game set in Tunisia. Player: ${name}, destination: ${city}, travel style: "${style}". Create their COMPLETE OPPOSITE — a vivid, real-feeling Tunisian person who experiences ${city} in the most radically different way. For stats (pace, culture, social), DO NOT USE PERCENTAGES. Use an exact integer between 1 and 10 (e.g. 7). 
-        
+
+You are an autonomous local-scout agent. Before generating the missions, use your Google Search tool to find REAL, highly specific, non-touristy locations in ${city} (Tunisia). DO NOT use generic landmarks (like 'The Carthage Ruins' or 'Sidi Bou Said main street'). Search for hidden gems, local cafes, specific narrow streets, or authentic local artisan shops. Ignore TripAdvisor or standard top-10 lists. Look for authentic local context. Integrate ONE verified real-world location seamlessly into the 'text' of the HARD difficulty mission. Ensure the place actually exists today.
+
 Review the provided list of available avatars (archetypes) below:
 ${manifestString}
 
-Choose the 'id' of the avatar that visually matches the persona you are generating best based on their gender, age, and vibe. Return this exact filename string in the JSON response under the key "avatar_id". Return ONLY valid JSON.`;
+Choose the 'id' of the avatar that visually matches the persona you are generating best based on their gender, age, and vibe. Return this exact filename string in the JSON response under the key "avatar_id".
+
+CRITICAL: You MUST return ONLY a raw, perfectly valid JSON object. Do not wrap it in markdown blockquotes. The JSON must exactly match this structure:
+{
+  "name": "string",
+  "age": number,
+  "origin": "string",
+  "avatar_id": "string",
+  "stats": {\n    "pace": number,\n    "culture": number,\n    "social": number\n  },
+  "movement": "string",
+  "notices": "string",
+  "never": "string",
+  "quote": "string",
+  "missions": [\n    { "text": "string", "xp": number, "difficulty": "EASY" | "MEDIUM" | "HARD" }\n  ]
+}
+Return ONLY valid JSON.`;
 
         const response = await ai.models.generateContent({
             model: 'gemini-2.5-flash',
             contents: prompt,
             config: {
-                responseMimeType: 'application/json',
-                responseSchema: egoSchema,
+                tools: [{ googleSearch: {} }]
             }
         });
 
-        const data = JSON.parse(response.text || '{}');
+        let rawText = response.text || '{}';
+        rawText = rawText.replace(/^```json/i, '').replace(/^```/, '').replace(/```$/, '').trim();
+
+        const data = JSON.parse(rawText);
+
+        // Clean up redundant prefixes if the LLM hallucinated them 
+        if (Array.isArray(data.missions)) {
+            data.missions.forEach((m: any) => {
+                if (m.text) {
+                    m.text = m.text.replace(/^(EASY|MEDIUM|HARD):\s*/i, '').trim();
+                }
+            });
+        }
+
         return NextResponse.json(data);
     } catch (error) {
         console.error('Error generating ego:', error);
