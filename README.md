@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# ALTER EGO
+*Tourist Edition · Tunisia 2025*
 
-First, run the development server:
+An experiential, ambient AI-driven tourism simulator that challenges you to see the world completely differently.
 
+</div>
+
+<br />
+
+## 🎭 The Concept
+**Alter Ego** flips the traditional concept of an AI travel guide on its head. Instead of asking what *you* want to see in Tunisia, the engine asks you who you are—and then artificially constructs your complete opposite.
+
+Powered by **Gemini 2.5 Flash**, the game generates a local "Alter Ego" based on your travel style, dynamically assigning you an authentic Tunisian name, age, cultural background, and custom missions that force you to experience the destination through entirely foreign eyes.
+
+Coupled with a custom **in-memory Zod Validation** pipeline and localized ambient audio streams that route dynamically based on the geographic region you choose (from Carthage to Douz), it's a completely immersive roleplay challenge.
+
+## ✨ Features
+- **Dynamic AI Generation:** Real-time character creation, localized missions, and dynamically evaluated "Soul Stamps" based on your post-trip debrief.
+- **Tech-Noir AI Avatars:** A rich `manifest.json` asset library pre-generated using **Google Imagen 4**, mapped sequentially to character archetypes for 0ms load latency.
+- **Aggressive Rate Limiting:** Built-in zero-dependency memory cache built to survive Vercel serverless cold-starts to prevent endpoint spam.
+- **Mobile-First UX:** Fluid Tailwind 4 layouts paired with pure CSS glitch scanlines and CRT overlays for a premium, heavy aesthetic regardless of viewport size.
+- **Zustand State Engine:** Headless reactivity for seamless audio mixing and persistent cross-session progress tracking.
+
+## 🛠️ Stack Architecture
+- **Framework:** Next.js 15 (App Router)
+- **Engine:** Google Gemini API (`@google/genai`)
+- **Validation:** Zod schemas
+- **Styling:** Tailwind CSS + Framer Motion + Vanilla Keyframes
+- **State:** Zustand
+
+## 🚀 Quick Start
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/b5x0/AlterEgo.git
+cd AlterEgo/alter-ego
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Add your Gemini API Key
+Create a `.env.local` file in the root `alter-ego` directory:
+```bash
+GEMINI_API_KEY="your-google-api-key-here"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Run the Dev Server
+```bash
+npm run dev
+```
+Navigate to `http://localhost:3000` to boot the interface.
 
-## Learn More
+## 🔒 Security
+- **Strict Payload Mapping:** All Next.js `/api` endpoints run through `.safeParse()` Zod boundaries enforcing maximum string lengths.
+- **Prompt Isolation:** User-submitted textual input from the Debrief is cleansed of generic `system:` manipulation commands via regex before injection into the LLM sandbox.
+- **Throttling:** Unauthenticated POST requests are forcefully severed after 5 attempts per minute per `x-forwarded-for` IP header.
 
-To learn more about Next.js, take a look at the following resources:
+## 🌍 Audio Geography Tracklist
+*All audio property rights belong to their respective Tunisian artists/composers.*
+- **System BIOS:** Marcel Khalife - The Astounding Eyes of Rita
+- **Tunis:** EMEL - Holm (A Dream)
+- **Sidi Bou Said:** ROMEO & LEILA
+- **Djerba:** Houeida Hedfi - Appel du Danube
+- **Sousse:** Farah Fersi - Tunisian Medley
+- **Douz:** Tinariwen - Sastanàqqàm
+- **Carthage:** Dhafer Youssef - Birds Requiem Suite
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Created during the Google x DataQuest Hackathon 2025.*

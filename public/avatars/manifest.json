@@ -1,0 +1,122 @@
+[
+  {
+    "id": "avatar_01.png",
+    "gender": "male",
+    "age": "young",
+    "vibe": "tunis, hacker, medina, streetwise"
+  },
+  {
+    "id": "avatar_02.png",
+    "gender": "female",
+    "age": "young",
+    "vibe": "tunis, artist, bright neon, rebellious"
+  },
+  {
+    "id": "avatar_03.png",
+    "gender": "male",
+    "age": "middle-aged",
+    "vibe": "tunis, underground broker, sharp suit, mysterious"
+  },
+  {
+    "id": "avatar_04.png",
+    "gender": "female",
+    "age": "elder",
+    "vibe": "sidi bou said, wise, traditional garments with tech accents"
+  },
+  {
+    "id": "avatar_05.png",
+    "gender": "male",
+    "age": "young",
+    "vibe": "sidi bou said, cafe owner, relaxed, coastal tech"
+  },
+  {
+    "id": "avatar_06.png",
+    "gender": "female",
+    "age": "middle-aged",
+    "vibe": "carthage, historian, academic, ruins explorer"
+  },
+  {
+    "id": "avatar_07.png",
+    "gender": "male",
+    "age": "elder",
+    "vibe": "carthage, old guard, weathered, distinguished"
+  },
+  {
+    "id": "avatar_08.png",
+    "gender": "female",
+    "age": "young",
+    "vibe": "sousse, club promoter, vibrant, energetic"
+  },
+  {
+    "id": "avatar_09.png",
+    "gender": "male",
+    "age": "middle-aged",
+    "vibe": "sousse, merchant, bustling market, observant"
+  },
+  {
+    "id": "avatar_10.png",
+    "gender": "female",
+    "age": "middle-aged",
+    "vibe": "djerba, island trader, serene, sun-kissed"
+  },
+  {
+    "id": "avatar_11.png",
+    "gender": "male",
+    "age": "young",
+    "vibe": "djerba, tech repair, resource scavenger, inventive"
+  },
+  {
+    "id": "avatar_12.png",
+    "gender": "male",
+    "age": "elder",
+    "vibe": "djerba, traditional craftsman, experienced, calm"
+  },
+  {
+    "id": "avatar_13.png",
+    "gender": "female",
+    "age": "young",
+    "vibe": "douz, desert guide, tactical gear, sahara"
+  },
+  {
+    "id": "avatar_14.png",
+    "gender": "male",
+    "age": "elder",
+    "vibe": "douz, sahara nomad, weathered skin, traditional"
+  },
+  {
+    "id": "avatar_15.png",
+    "gender": "female",
+    "age": "middle-aged",
+    "vibe": "douz, oasis botanist, rugged, pragmatic"
+  },
+  {
+    "id": "avatar_16.png",
+    "gender": "male",
+    "age": "young",
+    "vibe": "tunis, delivery runner, agile, urban"
+  },
+  {
+    "id": "avatar_17.png",
+    "gender": "female",
+    "age": "elder",
+    "vibe": "tunis, medina matriarch, imposing, respects tradition"
+  },
+  {
+    "id": "avatar_18.png",
+    "gender": "male",
+    "age": "middle-aged",
+    "vibe": "sidi bou said, gallery curator, eccentric, colorful"
+  },
+  {
+    "id": "avatar_19.png",
+    "gender": "female",
+    "age": "young",
+    "vibe": "carthage, student, curious, modern"
+  },
+  {
+    "id": "avatar_20.png",
+    "gender": "male",
+    "age": "middle-aged",
+    "vibe": "sousse, harbor master, tough, maritime"
+  }
+]
