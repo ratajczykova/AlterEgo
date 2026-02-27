@@ -48,9 +48,9 @@ export default function EgoScreen() {
                         <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,12,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] z-10 pointer-events-none mix-blend-overlay"></div>
                     </div>
                     <div className="char-title-block">
-                        <p className="char-role text-[10px] md:text-sm">// YOUR ALTER EGO · TUNISIA</p>
-                        <h2 className="char-name text-4xl md:text-6xl" id="char-name">{ego.name}</h2>
-                        <p className="char-sub text-xs md:text-base" id="char-sub">{ego.age} YRS · {ego.origin?.toUpperCase()}</p>
+                        <p className="char-role text-xs md:text-sm font-bold tracking-widest">// YOUR ALTER EGO · TUNISIA</p>
+                        <h2 className="char-name text-4xl md:text-6xl font-black tracking-tight" id="char-name">{ego.name}</h2>
+                        <p className="char-sub text-sm md:text-lg font-bold" id="char-sub">{ego.age} YRS · {ego.origin?.toUpperCase()}</p>
                     </div>
                 </div>
 
@@ -95,16 +95,16 @@ export default function EgoScreen() {
 
                 <div className="profile-grid grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 border-y border-border py-4 md:py-6 mb-6 md:mb-8">
                     <div className="profile-cell">
-                        <p className="profile-cell-label text-[10px] md:text-xs">How they move</p>
-                        <p className="profile-cell-value">{ego.movement}</p>
+                        <p className="profile-cell-label text-xs md:text-sm font-black uppercase tracking-widest text-gold mb-2">How they move</p>
+                        <p className="profile-cell-value text-base md:text-lg">{ego.movement}</p>
                     </div>
                     <div className="profile-cell">
-                        <p className="profile-cell-label">What they notice</p>
-                        <p className="profile-cell-value">{ego.notices}</p>
+                        <p className="profile-cell-label text-xs md:text-sm font-black uppercase tracking-widest text-gold mb-2">What they notice</p>
+                        <p className="profile-cell-value text-base md:text-lg">{ego.notices}</p>
                     </div>
                     <div className="profile-cell">
-                        <p className="profile-cell-label">What they never do</p>
-                        <p className="profile-cell-value">{ego.never}</p>
+                        <p className="profile-cell-label text-xs md:text-sm font-black uppercase tracking-widest text-gold mb-2">What they never do</p>
+                        <p className="profile-cell-value text-base md:text-lg">{ego.never}</p>
                     </div>
                 </div>
 
@@ -118,7 +118,7 @@ export default function EgoScreen() {
                 <div className="section-header">
                     <div className="section-tag">MISSIONS</div>
                     <div className="section-line"></div>
-                    <div className="section-sub">SELECT ONE · GO DO IT · COME BACK</div>
+                    <div className="section-sub text-xs md:text-sm font-black tracking-[0.2em] text-gold2">SELECT ONE · GO DO IT · COME BACK</div>
                 </div>
 
                 <div id="missions-list">

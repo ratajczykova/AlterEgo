@@ -57,8 +57,7 @@ export default function HUD() {
                         }}
                         onMouseEnter={() => playSfx('hover')}
                     >
-                        <span className="md:hidden">[{isMuted ? 'MUTE' : 'SND'}]</span>
-                        <span className="hidden md:inline">[{isMuted ? ' SOUND: MUTE ' : ' SOUND: ON '}]</span>
+                        {isMuted ? '🔇' : '🔊'}
                     </button>
                     <button
                         className="font-bebas text-gold text-sm md:text-lg tracking-[0.1em] md:tracking-[0.2em] hover:text-white transition-colors"

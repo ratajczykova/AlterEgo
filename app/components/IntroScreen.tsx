@@ -6,7 +6,7 @@ import { useAppStore } from '../store/useAppStore';
 import { useGameAudio } from '../hooks/useGameAudio';
 
 export default function IntroScreen() {
-    const { name: storedName, setName, setCity, setStyle, setCurrentScreen, collection } = useAppStore();
+    const { name: storedName, setName, setCity, setStyle, setCurrentScreen, collection, isMuted, toggleMute } = useAppStore();
     const { playSfx } = useGameAudio();
 
     const [localName, setLocalName] = useState(storedName || '');
@@ -39,25 +39,38 @@ export default function IntroScreen() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <p className="intro-pre">▶ NEW GAME · تونس</p>
-            <h1 className="intro-title text-6xl md:text-8xl lg:text-[130px] flex flex-col md:flex-row items-center justify-center gap-0 md:gap-4 mb-2 md:mb-0 transition-all">
+            <div className="absolute top-6 right-6 md:top-8 md:right-8 z-50">
+                <button
+                    className="w-12 h-12 flex items-center justify-center bg-panel/80 backdrop-blur-sm border border-border rounded-full text-2xl hover:border-gold transition-all"
+                    onClick={() => {
+                        playSfx('click');
+                        toggleMute();
+                    }}
+                    onMouseEnter={() => playSfx('hover')}
+                >
+                    {isMuted ? '🔇' : '🔊'}
+                </button>
+            </div>
+
+            <p className="intro-pre text-xs md:text-sm font-bold">▶ NEW GAME · تونس</p>
+            <h1 className="intro-title text-6xl md:text-8xl lg:text-[130px] flex flex-col md:flex-row items-center justify-center gap-0 md:gap-4 mb-2 md:mb-0 font-black tracking-tighter transition-all">
                 <span className="alter">ALTER</span>
                 <span className="ego">EGO</span>
             </h1>
-            <p className="intro-sub">TOURIST EDITION · TUNISIA 2025</p>
-            <p className="intro-arabic">كن شخصاً آخر</p>
+            <p className="intro-sub text-xs md:text-sm font-bold text-muted/80">TOURIST EDITION · TUNISIA 2026</p>
+            <p className="intro-arabic text-lg md:text-xl font-medium">كن شخصاً آخر</p>
 
             <div className="stats-preview flex flex-wrap justify-center gap-2 md:gap-4 my-6">
-                <div className="stat-chip text-[10px] md:text-xs">🏅 XP SYSTEM</div>
-                <div className="stat-chip text-[10px] md:text-xs">🎭 3 MISSIONS</div>
-                <div className="stat-chip text-[10px] md:text-xs">🔖 SOUL STAMP</div>
+                <div className="stat-chip text-xs md:text-sm font-bold">🏅 XP SYSTEM</div>
+                <div className="stat-chip text-xs md:text-sm font-bold">🎭 3 MISSIONS</div>
+                <div className="stat-chip text-xs md:text-sm font-bold">🔖 SOUL STAMP</div>
             </div>
 
             <div className="form-panel">
                 <p className="panel-title">// CHARACTER SETUP</p>
 
                 <div className="f-group">
-                    <label className="f-label" htmlFor="u-name">Player name</label>
+                    <label className="f-label text-xs md:text-sm font-bold" htmlFor="u-name">Player name</label>
                     <input
                         className={`f-input ${storedName ? 'opacity-50 cursor-not-allowed' : ''}`}
                         type="text"
@@ -72,7 +85,7 @@ export default function IntroScreen() {
                 </div>
 
                 <div className="f-group">
-                    <label className="f-label">Select destination</label>
+                    <label className="f-label text-xs md:text-sm font-bold">Select destination</label>
                     <div className="city-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4">
                         {[
                             { id: 'c1', value: 'Tunis', icon: '🕌' },
@@ -102,7 +115,7 @@ export default function IntroScreen() {
                 </div>
 
                 <div className="f-group">
-                    <label className="f-label">Your travel style</label>
+                    <label className="f-label text-xs md:text-sm font-bold">Your travel style</label>
                     <div className="style-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
                         {[
                             { id: 's1', value: 'Comfortable & guided', label: '😌 Comfortable' },
