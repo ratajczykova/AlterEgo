@@ -1,7 +1,7 @@
 <div align="center">
 
 # ALTER EGO
-*Tourist Edition · Tunisia 2025*
+*Tourist Edition · Tunisia 2026*
 
 An experiential, ambient AI-driven tourism simulator that challenges you to see the world completely differently.
 
