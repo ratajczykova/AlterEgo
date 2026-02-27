@@ -70,4 +70,4 @@ Navigate to `http://localhost:3000` to boot the interface.
 - **Carthage:** Dhafer Youssef - Birds Requiem Suite
 
 ---
-*Created during the Google x DataQuest Hackathon 2025.*
+*Created during the AI Night Challenge 2026*
