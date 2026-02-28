@@ -3,6 +3,10 @@
 # ALTER EGO
 *Tourist Edition · Tunisia 2026*
 
+- Deployment Link: https://alter-ego-chi.vercel.app/
+- Video Demo: https://youtu.be/7SEAzkglATc?si=sk1BvBDqpyLjZ1gP
+- Presentation: https://www.canva.com/design/DAHCkPLoO40/otBDRfpcufSp14iIU-YxUg/edit?utm_content=DAHCkPLoO40&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 An experiential, ambient AI-driven tourism simulator that challenges you to see the world completely differently.
 
 </div>
